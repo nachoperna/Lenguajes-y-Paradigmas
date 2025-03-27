@@ -1,0 +1,232 @@
+i)
+	1. a=1
+		assignment: (yield_expr | star_expressions) !'=' [TYPE_COMMENT]
+		star_expressions: star_expression
+		star_expression: expression
+
+	2. def f(x):
+		function_def_raw: 'def' NAME [type_params] '(' [params] ')' ['->' expression ] ':' [func_type_comment] block 
+		params: parameters
+		parameters: param_with_default+ [star_etc]
+		param_with_default: param default TYPE_COMMENT? &')'
+		param: NAME annotation?
+		default: invalid_default
+
+	2.1 x=2
+		assignment: (yield_expr | star_expressions) !'=' [TYPE_COMMENT]
+		star_expressions: star_expression
+		star_expression: expression
+
+	3. f(a)
+		primary: primary '(' [arguments] ')'
+		primary: atom
+		atom: NAME
+		arguments: args [','] &')'
+		args: ','.(starred_expression | ( assignment_expression | expression !':=') !'=')+ [',' kwargs ] 
+		expression
+
+ii)
+	1. a = lambda x:x+2
+		assignment: (star_targets '=' )+ (yield_expr | star_expressions) !'=' [TYPE_COMMENT]
+		star_targets: star_target !','
+		star_targets: target_with_star_atom
+		target_with_star_atom: star_atom
+		star_atom: NAME
+		star_expressions: star_expression
+		star_expression: expression
+		expression: lambdef
+		lambdef: 'lambda' [lambda_params] ':' expression
+		lambda_params: lambda_parameters
+		lambda_parameters: lambda_param_with_default+ [lambda_star_etc]
+		lambda_param_with_default: lambda_param default &':' 
+		lambda_param: NAME
+		default: invalid_default
+		expression: disjunction
+		disjunction: conjunction
+		conjunction: inversion
+		inversion: comparison
+		comparison: bitwise_or
+		bitwise_or: bitwise_xor
+		bitwise_xor: bitwise_and
+		bitwise_and: shift_expr
+		shift_expr: sum
+		sum: sum '+' term 
+		
+		sum: term
+		term: factor
+		factor: power
+		power: await_primary
+		await_primary: primary
+		primary: atom
+		atom: NAME
+		
+		term: factor
+		factor: power
+		power: await_primary
+		await_primary: primary
+		primary: atom
+		atom: NUMBER
+
+	2. print(a(1))
+		primary: primary '(' [arguments] ')'
+		primary: atom
+		atom: strings
+		strings: string
+		string: STRING // nose si print corresponde a un STRING pero no encontre otra salida
+		arguments: args [','] &')'
+		args: ','.(starred_expression | ( assignment_expression | expression !':=') !'=')+ [',' kwargs ] 
+		expression: disjunction
+		disjunction: conjunction
+		conjunction: inversion
+		inversion: comparison
+		comparison: bitwise_or
+		bitwise_or: bitwise_xor
+		bitwise_xor: bitwise_and
+		bitwise_and: shift_expr
+		shift_expr: sum
+		sum: term
+		term: factor
+		factor: power
+		power: await_primary
+		await_primary: primary
+		primary: '(' [arguments] ')'
+		arguments: args [','] &')'
+		args: ','.(starred_expression | ( assignment_expression | expression !':=') !'=')+ [',' kwargs ] 
+		expression: disjunction
+		disjunction: conjunction
+		conjunction: inversion
+		inversion: comparison
+		comparison: bitwise_or
+		bitwise_or: bitwise_xor
+		bitwise_xor: bitwise_and
+		bitwise_and: shift_expr
+		shift_expr: sum
+		sum: term
+		term: factor
+		factor: power
+		power: await_primary
+		await_primary: primary
+		primary: atom
+		atom: NUMBER
+
+iii)
+	1. def f(x,y):
+		R1: function_def_raw: 'def' NAME [type_params] '(' [params] ')' ['->' expression ] ':' [func_type_comment] block 
+			R2. params: parameters
+				R3. parameters: param_no_default+ param_with_default* [star_etc] 
+						param_no_default: param ',' TYPE_COMMENT?
+							param: NAME annotation?
+					R4. param_with_default: param default TYPE_COMMENT? &')' 
+						R5. param: NAME annotation?
+						R6. default: invalid_default
+			block: simple_stmts
+				simple_stmts: simple_stmt !';' NEWLINE
+					simple_stmt: assignment
+
+		2. a = x(y)
+			assignment: (star_targets '=' )+ (yield_expr | star_expressions) !'=' [TYPE_COMMENT] 
+				star_targets: star_target
+					star_target: target_with_star_atom
+						target_with_star_atom: star_atom
+							star_atom: NAME
+				star_expressions: star_expression
+				star_expression: expression
+	3. def g(z):
+		function_def_raw: 'def' NAME [type_params] '(' [params] ')' ['->' expression ] ':' [func_type_comment] block 
+			params: parameters
+				parameters: param_with_default+ [star_etc]
+					param_with_default: param default TYPE_COMMENT? &')'
+						param: NAME annotation?
+						default: invalid_default
+			block: simple_stmts
+
+		4. print(z+1)
+			simple_stmts: simple_stmt
+				simple_stmt: star_expressions
+					star_expressions: expression
+			sum: sum '+' term
+				sum: term
+					term: factor
+						factor: power
+							power: await_primaty
+								await_primary: primary
+									primary: atom
+										atom: NAME
+				term: factor
+						factor: power
+							power: await_primaty
+								await_primary: primary
+									primary: atom
+										atom: NUMBER
+
+	5. b = 5
+		assignment: (star_targets '=' )+ (yield_expr | star_expressions) !'=' [TYPE_COMMENT] 
+			star_targets: star_target !',' 
+				star_target: target_with_star_atom
+					target_with_star_atom: star_atom
+						star_atom: NAME
+			star_expressions: star_expression
+				star_expression: expression
+
+	6. f(g,b)
+		primary: primary '(' [arguments] ')'
+			primary: atom
+				atom: NAME
+			arguments: args [','] &')'
+				args: ','.(starred_expression | ( assignment_expression | expression !':=') !'=')+ [',' kwargs ] 
+					expression
+					expression
+
+iv)
+	1. def f():
+		function_def_raw: 'def' NAME [type_params] '(' [params] ')' ['->' expression ] ':' [func_type_comment] block 
+			block: simple_stmts
+				simple_stmts: star_expressions
+					star_expressions: expression
+			2. def g(z):
+				function_def_raw: 'def' NAME [type_params] '(' [params] ')' ['->' expression ] ':' [func_type_comment] block 
+					params: parameters
+						parameters: param_with_default+ [star_etc]
+							param_with_default: param default TYPE_COMMENT? &')'
+								param: NAME annotation?
+								default: invalid_default
+					block: simple_stmts
+
+					3. print(z+1)
+						simple_stmts: simple_stmt
+							simple_stmt: star_expressions
+								star_expressions: expression
+						sum: sum '+' term
+							sum: term
+								term: factor
+									factor: power
+										power: await_primaty
+											await_primary: primary
+												primary: atom
+													atom: NAME
+							term: factor
+									factor: power
+										power: await_primaty
+											await_primary: primary
+												primary: atom
+													atom: NUMBER
+			4. return g
+				return_stmt: 'return' [star_expressions] 
+					star_expressions: expression
+	5. c = f()
+		assignment: (star_targets '=' )+ (yield_expr | star_expressions) !'=' [TYPE_COMMENT] 
+			star_targets: star_target !',' 
+				star_target: target_with_star_atom
+					target_with_star_atom: star_atom
+						star_atom: NAME
+			star_expressions: expression
+				primary: primary '(' [arguments] ')'
+				primary: atom
+					atom: NAME
+	6. c(3)
+		primary: primary '(' [arguments] ')'
+			primary: atom
+				atom: NAME
+			arguments: args [','] &')'
+				args: ','.(starred_expression | ( assignment_expression | expression !':=') !'=')+ [',' kwargs ] 
+					expression

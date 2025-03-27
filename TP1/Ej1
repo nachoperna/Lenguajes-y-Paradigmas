@@ -1,0 +1,22 @@
+- Ej 1
+	- a) 
+	Es correcto afirmar que los bloques de codigo en el cuerpo de un if pueden ser los mismos que los del cuerpo de una funcion porque el cuerpo de una funcion esta compuesto por un bloque o por la igualdad de una expresion, y el cuerpo de un if esta compuesto por un bloque o un statement, que es una expresion.
+
+	- b)
+		i. correcto porque se toma como el cuerpo de if a ;
+		ii. incorrecto porque no se observa un bloque o una expresion en el cuerpo del if
+		iii. correcto porque println es el cuerpo del if y puede no contar con clausula else.
+		iv. incorrecto porque no se detecta un bloque o expresion en el cuerpo del else.
+		v. correcto porque el cuerpo del if es println
+		vi. incorrecto porque no hay un bloque o espresion en el cuerpo del if
+		vii. correcto porque el cuerpo del if es un ;
+		viii. correcto
+		ix. correcto porque el cuerpo del if puede terminar o no con un ;
+		x. correcto por la misma razon anterior que aplica a la clausula else
+		xi. correcto porque se toma como cuerpo del else al ;
+
+	-c) La funcion no es aceptada por el lenguaje porque se encuentra con un error de sintaxis en la linea ii donde el cuerpo del if(1==0) no contiene un bloque o una expresion.
+
+	-d) 
+
+	-e) El lenguaje mas flexible es Kotlin porque permite cuerpos que se definan o no con un ';' en cambio de Java que todo debe tener la misma sintaxis para ser compilada correctamente. El lenguaje Kotlin tiene mas posibilidades de generar un programa con funcionamiento inesperado porque permite flexibilidades que debe tener en cuenta el compilador donde distintas nomenclaturas podrian generar el mismo resultado.
