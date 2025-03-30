@@ -1,0 +1,64 @@
+- Codigo 1
+	
+	- a) La funcionalidad es almacenar en un arreglo 'r' todos los numeros pares de un arreglo 'a' en un rango del 1 al 6.
+
+	- b) Se usa un paradigma imperativo porque tenemos declaraciones de variables, clausulas de iteraciones y condiciones a cumplir.
+
+	- c)
+		i. No hay definiciones de funciones.
+		ii. No hay aplicacion de funciones.
+		iii. No hay afirmaciones porque no es un paradigma logico.
+		iv. No hay reglas porque no es un paradigma logico.
+		v. Linea 3: se pregunta si la variable 'i' es menor a 6
+		   Linea 4: se pregunta si el contenido del arreglo 'a' en la posicion 'i' al dividirlo por 2 da como resultado un numero sin decimales.
+		vi. No hay invocaciones a metodos.
+
+- Codigo 2
+	
+	- a) La funcionalidad es imprimir por pantalla todos los numeros pares de un arreglo anonimo con un rango entre 1 y 6.
+
+	- b) Se usa un paradigma imperativo porque solo tenemos invocaciones a metodos en el codigo, sin definicion ni aplicacion de funciones, ni reglas presentes.
+
+	- c) 
+		i. No hay definiciones de funciones.
+		ii. No hay aplicacion de funciones.
+		iii. No hay afirmaciones.
+		iv. No hay reglas.
+		v. se pregunta si la variable 'x' correspondiente a cada elemento del arreglo anonimo da como resultado un numero sin decimales al dividirla por 2.
+		vi. invocacion a metodo 'log' con parametros '[1,2,3,4,5,6].filter(x=> x % 2 == 0)' del objeto 'console'.
+			invocacion a metodo 'filter' con parametros 'x=> x % 2 == 0' del objeto 'Array'.
+
+- Codigo 3
+	
+	- a) La funcionalidad es sumar todos los elementos de un arreglo y devolver el resultado.
+
+	- b) Se una paradigma logico porque tenemos presentes reglas y hechos.
+
+	- c) 
+		i. No hay definiciones de funciones.
+		ii. No hay aplicacion de funciones.
+		iii. Linea 4: R is H+N
+		iv. Linea 1: suma([],0).
+		v. No hay preguntas porque es un paradigma logico.
+		vi. No hay invocacion a metodos porque es un paradigma logico.
+
+- Codigo 4
+	
+	- a) La funcionalidad es sumar todos los elementos de una lista de forma recursiva.
+
+	- b) Se usa un paradigma funcional porque solo hay definicion y aplicacion de funciones.
+
+	- c)
+		i. Linea 1: se define una funcion 'sum' que recibe como parametro 'elem'
+		ii. Linea 2: funcion 'if' con parametro 'null? elem'
+			Linea 3: funcion 'null?' con parametro 'elem'
+			Linea 5: funcion '+' con parametro '(car elem) (sum(cdr elem))'
+			Linea 5: funcion 'car' con parametro 'elem'
+			Linea 5: funcion 'sum' con parametro 'cdr elem'
+			Linea 5: funcion 'cdr' con parametro 'elem'
+			Linea 9: funcion 'sum' con parametro 'list 1 2 3 4'
+			Linea 9: funcion 'list' con parametro '1 2 3 4'
+		iii. No hay afirmaciones en un paradigma funcional.
+		iv. No hay reglas en un paradigma funcional.
+		v. Linea 3: se pregunta si el parametro 'elem' es nulo
+		vi. No hay invocacion a metodos en un paradigma funcional.
