@@ -1,0 +1,84 @@
+- Paradigma Funcional
+	- Linea 1: (defun contar (lista)
+		5) <function-def> ::= "(defun" <symbol> <param-list> <expr>* ")"
+			3) <atom> ::= <number> | <symbol> | <string>
+				2) <expr> ::= <atom> | <list>
+					expr
+			6) <param-list> ::= "(" <symbol>* ")"
+				3) <atom> ::= <number> | <symbol> | <string>
+					2) <expr> ::= <atom> | <list>
+						expr
+
+	- Linea 2: (if (null lista)
+		7) <function-app> ::= "(" <symbol> <expr>* ")"
+			3) <atom> ::= <number> | <symbol> | <string>
+				2) <expr> ::= <atom> | <list>
+					expr
+			2) <expr> ::= <atom> | <list>
+				4) <list> ::= <function-def> | <function-app> | "(" <expr>* ")"
+					7) <function-app> ::= "(" <symbol> <expr>* ")"
+						3) <atom> ::= <number> | <symbol> | <string>
+							2) <expr> ::= <atom> | <list>
+								expr
+						expr
+
+	- Linea 3: 0
+		3) <atom> ::= <number> | <symbol> | <string>
+			2) <expr> ::= <atom> | <list>
+				expr
+
+	- Linea 4: (if (zerop (car lista))	
+		7) <function-app> ::= "(" <symbol> <expr>* ")"
+			3) <atom> ::= <number> | <symbol> | <string>
+				2) <expr> ::= <atom> | <list>
+					expr
+			2) <expr> ::= <atom> | <list>
+				4) <list> ::= <function-def> | <function-app> | "(" <expr>* ")"
+					7) <function-app> ::= "(" <symbol> <expr>* ")"
+						3) <atom> ::= <number> | <symbol> | <string>
+							2) <expr> ::= <atom> | <list>
+								expr
+						2) <expr> ::= <atom> | <list>
+							4) <list> ::= <function-def> | <function-app> | "(" <expr>* ")"
+								7) <function-app> ::= "(" <symbol> <expr>* ")"
+									3) <atom> ::= <number> | <symbol> | <string>
+										2) <expr> ::= <atom> | <list>
+											expr
+									2) <expr> ::= <atom> | <list>
+											expr
+
+	- Linea 5: 0
+		3) <atom> ::= <number> | <symbol> | <string>
+			2) <expr> ::= <atom> | <list>
+				expr
+
+	- Linea 6: (+ 1 (contar (cdr lista)))
+		7) <function-app> ::= "(" <symbol> <expr>* ")"
+			3) <atom> ::= <number> | <symbol> | <string>
+				2) <expr> ::= <atom> | <list>
+					expr
+			2) <expr> ::= <atom> | <list>
+				4) <list> ::= <function-def> | <function-app> | "(" <expr>* ")"
+					7) <function-app> ::= "(" <symbol> <expr>* ")"
+						3) <atom> ::= <number> | <symbol> | <string>
+							2) <expr> ::= <atom> | <list>
+								expr
+						2) <expr> ::= <atom> | <list>
+							4) <list> ::= <function-def> | <function-app> | "(" <expr>* ")"
+								7) <function-app> ::= "(" <symbol> <expr>* ")"
+									3) <atom> ::= <number> | <symbol> | <string>
+										2) <expr> ::= <atom> | <list>
+											expr
+									2) <expr> ::= <atom> | <list>
+											expr
+
+	- Linea 8: (contar '(3 7 2 0 5))
+		 7) <function-app> ::= "(" <symbol> <expr>* ")"
+		 	3) <atom> ::= <number> | <symbol> | <string>
+				2) <expr> ::= <atom> | <list>
+					expr
+			2) <expr> ::= <atom> | <list>
+				4) <list> ::= <function-def> | <function-app> | "(" <expr>* ")"
+					2) <expr> ::= <atom> | <list>
+						3) <atom> ::= <number> | <symbol> | <string>
+							number
