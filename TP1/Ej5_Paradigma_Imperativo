@@ -1,0 +1,193 @@
+- Paradigma Imperativo
+	- Linea 1: func main() {
+		FunctionDecl = "func" FunctionName [ TypeParameters ] Signature [ FunctionBody ] .
+			FunctionName = identifier .
+			Signature = Parameters [ Result ] 
+				Parameters = "(" [ ParameterList [ "," ] ] ")" .
+			FunctionBody = Block .
+				Block = "{" StatementList "}" 
+					StatementList = { Statement ";" } .
+						Statement = Declaration | LabeledStmt | SimpleStmt | GoStmt | ReturnStmt | BreakStmt | ContinueStmt | GotoStmt |FallthroughStmt | Block | IfStmt | SwitchStmt | SelectStmt | ForStmt | DeferStmt .
+							SimpleStmt = EmptyStmt | ExpressionStmt | SendStmt | IncDecStmt | Assignment | ShortVarDecl .
+								Assignment
+
+	- Linea 2: var lista = []int{3, 7, 2, 0, 5}
+		VarDecl = "var" ( VarSpec | "(" { VarSpec ";" } ")" ) .
+			VarSpec = IdentifierList ( Type [ "=" ExpressionList ] | "=" ExpressionList ) .
+				IdentifierList = identifier { "," identifier } .
+					identifier 
+				ExpressionList = Expression { "," Expression } .
+					Expression = UnaryExpr | Expression binary_op Expression .
+						UnaryExpr  = PrimaryExpr | unary_op UnaryExpr .
+							PrimaryExpr = Operand | Conversion | MethodExpr | PrimaryExpr Selector | PrimaryExpr Index | PrimaryExpr Slice | PrimaryExpr TypeAssertion | PrimaryExpr Arguments .
+								Operand = Literal | OperandName [ TypeArgs ] | "(" Expression ")" .
+									Literal = BasicLit | CompositeLit | FunctionLit .
+										CompositeLit = LiteralType LiteralValue .
+											LiteralType  = StructType | ArrayType | "[" "..." "]" ElementType | SliceType | MapType | TypeName [ TypeArgs ] .
+												ArrayType = "[" ArrayLength "]" ElementType .
+													ArrayLength = Expression .
+														ElementType = Type .
+															Type = TypeName [ TypeArgs ] | TypeLit | "(" Type ")" .
+																TypeName = identifier | QualifiedIdent .
+																	Identifier
+											LiteralValue = "{" [ ElementList [ "," ] ] "}" .
+
+	- Linea 3: var contador int = 0
+		VarDecl = "var" ( VarSpec | "(" { VarSpec ";" } ")" ) .
+			VarSpec = IdentifierList ( Type [ "=" ExpressionList ] | "=" ExpressionList ) .
+				IdentifierList = identifier { "," identifier } .
+					identifier
+				Type = TypeName [ TypeArgs ] | TypeLit | "(" Type ")" .
+					TypeName = identifier | QualifiedIdent .
+						Identifier
+				ExpressionList = Expression { "," Expression } .
+					Expression = UnaryExpr | Expression binary_op Expression .
+						UnaryExpr  = PrimaryExpr | unary_op UnaryExpr .
+							PrimaryExpr = Operand | Conversion | MethodExpr | PrimaryExpr Selector | PrimaryExpr Index | PrimaryExpr Slice | PrimaryExpr TypeAssertion | PrimaryExpr Arguments .
+								Operand = Literal | OperandName [ TypeArgs ] | "(" Expression ")" .
+									Literal = BasicLit | CompositeLit | FunctionLit .
+										BasicLit = int_lit | float_lit | imaginary_lit | rune_lit | string_lit .
+											int_lit = decimal_lit | binary_lit | octal_lit | hex_lit .
+												binary_lit = "0" ( "b" | "B" ) [ "_" ] binary_digits .
+													0
+
+	- Linea 4: for i := 0; i < len(lista); i++ {
+		ForStmt = "for" [ Condition | ForClause | RangeClause ] Block .
+			ForClause = [ InitStmt ] ";" [ Condition ] ";" [ PostStmt ] .
+				InitStmt = SimpleStmt .
+					SimpleStmt = EmptyStmt | ExpressionStmt | SendStmt | IncDecStmt | Assignment | ShortVarDecl .
+						ShortVarDecl = IdentifierList ":=" ExpressionList .
+							IdentifierList = identifier { "," identifier } .
+								Identifier
+							ExpressionList = Expression { "," Expression } .
+								Expression = UnaryExpr | Expression binary_op Expression .
+									UnaryExpr  = PrimaryExpr | unary_op UnaryExpr .
+										PrimaryExpr = Operand | Conversion | MethodExpr | PrimaryExpr Selector | PrimaryExpr Index | PrimaryExpr Slice | PrimaryExpr TypeAssertion | PrimaryExpr Arguments .
+											Operand = Literal | OperandName [ TypeArgs ] | "(" Expression ")" .
+												Literal = BasicLit | CompositeLit | FunctionLit .
+													BasicLit = int_lit | float_lit | imaginary_lit | rune_lit | string_lit .
+														int_lit = decimal_lit | binary_lit | octal_lit | hex_lit .
+															binary_lit = "0" ( "b" | "B" ) [ "_" ] binary_digits .
+																0
+				Condition = Expression .
+					Expression = UnaryExpr | Expression binary_op Expression .
+						Expression = UnaryExpr | Expression binary_op Expression .
+							UnaryExpr  = PrimaryExpr | unary_op UnaryExpr .
+								PrimaryExpr = Operand | Conversion | MethodExpr | PrimaryExpr Selector | PrimaryExpr Index | PrimaryExpr Slice | PrimaryExpr TypeAssertion | PrimaryExpr Arguments .
+									Operand = Literal | OperandName [ TypeArgs ] | "(" Expression ")" .
+										OperandName = identifier | QualifiedIdent .
+											identifier
+						binary_op = "||" | "&&" | rel_op | add_op | mul_op .
+							rel_op = "==" | "!=" | "<" | "<=" | ">" | ">=" .
+								<
+						Expression = UnaryExpr | Expression binary_op Expression .
+							UnaryExpr  = PrimaryExpr | unary_op UnaryExpr .
+								PrimaryExpr = Operand | Conversion | MethodExpr | PrimaryExpr Selector | PrimaryExpr Index | PrimaryExpr Slice | PrimaryExpr TypeAssertion | PrimaryExpr Arguments .
+									Conversion = Type "(" Expression [ "," ] ")" .
+										Type = TypeName [ TypeArgs ] | TypeLit | "(" Type ")" .
+											TypeName = identifier | QualifiedIdent .
+												Identifier
+										Expression = UnaryExpr | Expression binary_op Expression.
+											UnaryExpr  = PrimaryExpr | unary_op UnaryExpr .
+												PrimaryExpr = Operand | Conversion | MethodExpr | PrimaryExpr Selector | PrimaryExpr Index | PrimaryExpr Slice | PrimaryExpr TypeAssertion | PrimaryExpr Arguments .
+													Conversion = Type "(" Expression [ "," ] ")".
+														Type = TypeName [ TypeArgs ] | TypeLit | "(" Type ")" .
+															TypeName = identifier | QualifiedIdent .
+																Identifier
+				PostStmt  = SimpleStmt .
+					SimpleStmt = EmptyStmt | ExpressionStmt | SendStmt | IncDecStmt | Assignment | ShortVarDecl .
+						IncDecStmt = Expression ( "++" | "--" ) .
+							Expression = UnaryExpr | Expression binary_op Expression .
+							UnaryExpr  = PrimaryExpr | unary_op UnaryExpr .
+								PrimaryExpr = Operand | Conversion | MethodExpr | PrimaryExpr Selector | PrimaryExpr Index | PrimaryExpr Slice | PrimaryExpr TypeAssertion | PrimaryExpr Arguments .
+									Conversion = Type "(" Expression [ "," ] ")" .
+										Type = TypeName [ TypeArgs ] | TypeLit | "(" Type ")" .
+											TypeName = identifier | QualifiedIdent .
+												Identifier
+										Expression = UnaryExpr | Expression binary_op Expression.
+											UnaryExpr  = PrimaryExpr | unary_op UnaryExpr .
+												PrimaryExpr = Operand | Conversion | MethodExpr | PrimaryExpr Selector | PrimaryExpr Index | PrimaryExpr Slice | PrimaryExpr TypeAssertion | PrimaryExpr Arguments .
+													Conversion = Type "(" Expression [ "," ] ")".
+														Type = TypeName [ TypeArgs ] | TypeLit | "(" Type ")" .
+															TypeName = identifier | QualifiedIdent .
+																Identifier
+
+			Block = "{" StatementList "}" .
+				StatementList = { Statement ";" } .
+					Statement
+
+	- Linea 5: if lista[i] == 0 {
+		IfStmt = "if" [ SimpleStmt ";" ] Expression Block [ "else" ( IfStmt | Block ) ] .
+			Expression = UnaryExpr | Expression binary_op Expression .
+				Expression = UnaryExpr | Expression binary_op Expression .
+					UnaryExpr  = PrimaryExpr | unary_op UnaryExpr .
+						PrimaryExpr = Operand | Conversion | MethodExpr | PrimaryExpr Selector | PrimaryExpr Index | PrimaryExpr Slice | PrimaryExpr TypeAssertion | PrimaryExpr Arguments .
+							PrimaryExpr = Operand | Conversion | MethodExpr | PrimaryExpr Selector | PrimaryExpr Index | PrimaryExpr Slice | PrimaryExpr TypeAssertion | PrimaryExpr Arguments .
+								Operand = Literal | OperandName [ TypeArgs ] | "(" Expression ")" .
+									OperandName = identifier | QualifiedIdent .
+										Identifier
+							Index = "[" Expression [ "," ] "]" .
+								Expression = UnaryExpr | Expression binary_op Expression .
+									UnaryExpr  = PrimaryExpr | unary_op UnaryExpr .
+										PrimaryExpr = Operand | Conversion | MethodExpr | PrimaryExpr Selector | PrimaryExpr Index | PrimaryExpr Slice | PrimaryExpr TypeAssertion | PrimaryExpr Arguments .
+											Operand = Literal | OperandName [ TypeArgs ] | "(" Expression ")" .
+												OperandName = identifier | QualifiedIdent .
+													Identifier
+				binary_op = "||" | "&&" | rel_op | add_op | mul_op .
+					rel_op = "==" | "!=" | "<" | "<=" | ">" | ">=" .
+						==
+				Expression = UnaryExpr | Expression binary_op Expression .
+					UnaryExpr  = PrimaryExpr | unary_op UnaryExpr .
+						PrimaryExpr = Operand | Conversion | MethodExpr | PrimaryExpr Selector | PrimaryExpr Index | PrimaryExpr Slice | PrimaryExpr TypeAssertion | PrimaryExpr Arguments .
+							Operand = Literal | OperandName [ TypeArgs ] | "(" Expression ")" .
+								Literal = BasicLit | CompositeLit | FunctionLit .
+									BasicLit = int_lit | float_lit | imaginary_lit | rune_lit | string_lit .
+										int_lit = decimal_lit | binary_lit | octal_lit | hex_lit .
+											binary_lit = "0" ( "b" | "B" ) [ "_" ] binary_digits .
+												0
+				Block = "{" StatementList "}" .
+					StatementList = { Statement ";" } .
+						Statement = Declaration | LabeledStmt | SimpleStmt | GoStmt | ReturnStmt | BreakStmt | ContinueStmt | GotoStmt |FallthroughStmt | Block | IfStmt | SwitchStmt | SelectStmt | ForStmt | DeferStmt .
+							SimpleStmt = EmptyStmt | ExpressionStmt | SendStmt | IncDecStmt | Assignment | ShortVarDecl .
+
+	- Linea 6: break
+		BreakStmt = "break" [ Label ] .
+			Break
+
+	- Linea 8: contador = contador + 1
+		Assignment = ExpressionList assign_op ExpressionList .
+			ExpressionList = Expression { "," Expression } .
+				Expression = UnaryExpr | Expression binary_op Expression .
+					UnaryExpr  = PrimaryExpr | unary_op UnaryExpr .
+						PrimaryExpr = Operand | Conversion | MethodExpr | PrimaryExpr Selector | PrimaryExpr Index | PrimaryExpr Slice | PrimaryExpr TypeAssertion | PrimaryExpr Arguments .
+							Operand = Literal | OperandName [ TypeArgs ] | "(" Expression ")" .
+								OperandName = identifier | QualifiedIdent .
+									Identifier
+			assign_op  = [ add_op | mul_op ] "=" .
+				=
+			ExpressionList = Expression { "," Expression } .
+				Expression = UnaryExpr | Expression binary_op Expression .
+					Expression = UnaryExpr | Expression binary_op Expression .
+					UnaryExpr  = PrimaryExpr | unary_op UnaryExpr .
+						PrimaryExpr = Operand | Conversion | MethodExpr | PrimaryExpr Selector | PrimaryExpr Index | PrimaryExpr Slice | PrimaryExpr TypeAssertion | PrimaryExpr Arguments .
+							Operand = Literal | OperandName [ TypeArgs ] | "(" Expression ")" .
+								OperandName = identifier | QualifiedIdent .
+									Identifier
+					binary_op = "||" | "&&" | rel_op | add_op | mul_op .
+						add_op = "+" | "-" | "|" | "^" .
+							+
+					Expression = UnaryExpr | Expression binary_op Expression .
+						UnaryExpr  = PrimaryExpr | unary_op UnaryExpr .
+							PrimaryExpr = Operand | Conversion | MethodExpr | PrimaryExpr Selector | PrimaryExpr Index | PrimaryExpr Slice | PrimaryExpr TypeAssertion | PrimaryExpr Arguments .
+								Operand = Literal | OperandName [ TypeArgs ] | "(" Expression ")" .
+									Literal = BasicLit | CompositeLit | FunctionLit .
+										BasicLit = int_lit | float_lit | imaginary_lit | rune_lit | string_lit .
+											int_lit = decimal_lit | binary_lit | octal_lit | hex_lit .
+												decimal_lit = "0" | ( "1" … "9" ) [ [ "_" ] decimal_digits ] .
+													1
+
+	- Linea 10: fmt.Printf("La cantidad es:%d\n", contador)
+		MethodExpr = ReceiverType "." MethodName .
+			ReceiverType = Type .
+		MethodName = identifier .
+			Identifier
