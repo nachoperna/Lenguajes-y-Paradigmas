@@ -1,0 +1,83 @@
+- Paradigma Logico
+	- Linea 1: contar([], 0).
+		7) estructura ::= nombre ( términos )
+			nombre
+			5) términos ::= término | término , términos
+				6) termino ::= número | variable | lista | estructura
+					8) lista ::= [ términos ] | [ términos | lista ] | [ ]
+						[]
+				5) términos ::= término | término , términos
+					6) termino ::= número | variable | lista | estructura
+						numero
+
+	- Linea 2: contar([0 | _], 0).
+		7) estructura ::= nombre ( términos )
+			nombre
+			5) términos ::= término | término , términos
+				6) termino ::= número | variable | lista | estructura
+					8) lista ::= [ términos ] | [ términos | lista ] | [ ]
+						5) términos ::= término | término , términos
+							6) termino ::= número | variable | lista | estructura
+								numero
+						8) lista ::= [ términos ] | [ términos | lista ] | [ ]
+							5) términos ::= término | término , términos
+								6) termino ::= número | variable | lista | estructura
+									variable
+				5) términos ::= término | término , términos
+					6) termino ::= número | variable | lista | estructura
+						numero
+
+	- Linea 3: contar([_ | Cola], C) :-
+		2) cláusula ::= predicado | predicado :- predicados
+			4) predicado ::= nombre | estructura
+				7) estructura ::= nombre ( términos )
+					nombre
+					5) términos ::= término | término , términos
+						6) termino ::= número | variable | lista | estructura
+							8) lista ::= [ términos ] | [ términos | lista ] | [ ]
+								5) términos ::= término | término , términos
+									6) termino ::= número | variable | lista | estructura
+										Variable
+								8) lista ::= [ términos ] | [ términos | lista ] | [ ]
+									5) términos ::= término | término , términos
+										6) termino ::= número | variable | lista | estructura
+											variable
+						5) términos ::= término | término , términos
+							6) termino ::= número | variable | lista | estructura
+								variable
+			3) predicados ::= predicado | predicado , predicados
+
+	- Linea 4: contar(Cola, CA),
+		7) estructura ::= nombre ( términos )
+			nombre
+			5) términos ::= término | término , términos
+				6) termino ::= número | variable | lista | estructura
+					variable
+				5) términos ::= término | término , términos
+					6) termino ::= número | variable | lista | estructura
+						variable
+
+	- Linea 5: C is CA + 1.
+		1) programa ::= cláusula . | cláusula . programa
+			2) cláusula ::= predicado | predicado :- predicados
+				4) predicado ::= nombre | estructura
+					nombre
+
+	- Linea 6: contar([3, 7 , 2 , 0, 5], contador).
+		1) programa ::= cláusula . | cláusula . programa
+			2) cláusula ::= predicado | predicado :- predicados
+				4) predicado ::= nombre | estructura
+					7) estructura ::= nombre ( términos )
+						nombre
+						5) términos ::= término | término , términos
+							6) termino ::= número | variable | lista | estructura
+								8) lista ::= [ términos ] | [ términos | lista ] | [ ]
+									5) términos ::= término | término , términos
+										6) termino ::= número | variable | lista | estructura
+											numero
+										5) términos ::= término | término , términos
+											6) termino ::= número | variable | lista | estructura
+												numero
+							5) términos ::= término | término , términos
+								6) termino ::= número | variable | lista | estructura
+									variable
