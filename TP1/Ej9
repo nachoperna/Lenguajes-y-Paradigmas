@@ -1,0 +1,53 @@
+1 <Exp> ::= (λVar.<Exp>) (definición de abstracción)
+2 <Exp> ::= (<Exp> <Exp>) Aplicación (sustitución o concatenación)
+3 <Exp> ::= (Var) | (Cte) Definición de Variables o constantes según se vió en la teoría
+(En lugar del símbolo λ es posible utilizar la palabra lambda)
+
+- a) (lambda x.1 (x 3)) ((lambda y.(lambda z.y z)) 1 2)
+	
+	- Regla: 2
+	- Fragmento: (lambda x.1 (x 3)) ((lambda y.(lambda z.y z)) 1 2)
+	- Resultado: (1 (((lambda y.(lambda z.y z)) 1 2) 3))
+
+	- Regla: 1
+	- Fragmento: (lambda y.(lambda z.y z)) 1 2)
+	- Resultado: (1 (lambda z.1 2 z) 3))
+
+	- Regla: 2
+	- Fragmento: (lambda z.1 2 z) 3
+	- Resultado: (1 (1 2) 3)
+
+- b) 
+	i) (lambda x.x 2) 1
+		invocacion de funcion con parametro real literal
+
+	ii) (lambda x.1 (x 2)) (lambda y.y)
+		pasaje de funcion como parametro
+
+	iii) (lambda x.x)
+		definicion de funcion
+
+	iv) (lambda x.(lambda y.x y)) 1 2
+		retorno de una funcion como resultado
+
+	v) (lambda x.x 2) ((lambda y.y) 1)
+		invocacion a funcion con el resultado de haber llamado a otra funcion
+
+- c)
+	p1: print ((lambda x: x+2) (1))
+		- corresponde a la linea '(lambda x.x 2) 1'
+		- parametro formal: x
+		- parametro real: 1
+		- cuerpo: x+2
+
+	p2: print ((lambda x: x(2)+1) (lambda y: y))
+		- corresponde a la linea '(lambda x.1 (x 2)) (lambda y.y)'
+		- parametro formal: x
+		- parametro real: (lambda y: y)
+		- cuerpo: x(2)+1
+
+	p3: print ((lambda x: (lambda y : x + y) (1) ) (2))
+		- corresponde a la linea '(lambda x.(lambda y.x y)) 1 2'
+		- parametro formal: x
+		- parametro real: 2
+		- cuerpo: (lambda y : x + y) (1)
