@@ -1,0 +1,66 @@
+- Codigo 1:
+	- a) Representado en un paradigma IMPERATIVO donde tenemos definicion de funciones, declaracion y asignacion de variables y llamados a funciones.
+
+	- b) La suma se implementa de manera recursiva teniendo como situacion de corte que no tengamos ningun numero para evaluar en ese momento y en caso contrario sumar el valor del indice actual con la suma de los valores que retorna el llamado a la funcion en un indice posterior.
+
+	- c) No hay paradigma que se aplique de forma pura.
+
+	- d) Las funciones se utilizan como de primera clase porque se invocan 'suma_lista(numeros[1:])', son devueltas como el resultado de una funcion 'return numeros[0] + suma_lista(numeros[1:])', y se asignan a variables 'resultado = suma_lista(numeros)'
+
+	- e)
+
+- Codigo 2:
+	- a) Representado en un paradigma ORIENTADO A OBJETOS e IMPERATIVO donde tenemos definicion de clases y objetos, definicion de metodos, invocacion a metodos, ademas de declaracion de objeto, declaracion y asignacion de variables, iteraciones 'for' y llamados a funciones.
+
+	- b) La suma se implementa como una iteracion simple por todos los elementos del arreglo de numeros y guardando el resultado en una variable local, dentro de un metodo de un objeto que solo retorna el resultado final al terminar de iterar por todos los elementos.
+
+	- c) No hay paradigma que se aplique de forma pura.
+
+	- d) No hay funciones en este codigo.
+
+	- e)
+
+- Codigo 3:
+	- a) Representado en un paradigma IMPERATIVO donde tenemos definicion de funciones, declaracion y asignacion de variables y llamados a funciones, con una iteracion simple.
+
+	- b) La suma se implementa como una iteracion simple por todos los elementos del arreglo de numeros y guardando el resultado en una variable local, dentro de un una funcion que solo retorna el resultado final al terminar de iterar por todos los elementos.
+
+	- c) No hay paradigma que se aplique de forma pura.
+
+	- d) Las funciones se utilizan como de primera clase porque se invocan 'suma_lista(numeros)', y se asignan a variables 'resultado = suma_lista(numeros)'
+
+	- e)
+
+- Codigo 4:
+	- a) Representado en un paradigma FUNCIONAL e IMPERATIVO (unicamente por la declaracion de variable numeros y locales 'cabeza' 'cola') porque tenemos definicion de funciones, llamados a funciones, 
+
+	- b) La suma se implementa de manera recursiva sumando el resultado del contenido de la cabeza de la lista actual 'cabeza' y 'cola' como el resto de la lista a traves de una funcion lambda que utiliza una funcion pasada como parametro
+
+	- c) No hay paradigma que se aplique de forma pura porque se utilizan declaracion de variables propio de un paradigma IMPERATIVO
+
+	- d) Las funciones se utilizan como de primera clase porque se invocan 'suma_lista(numeros, manejar_resultado)', son enviadas como parametro, y son retornadas como resultado.
+
+- Codigo 5:
+	- a) Representado en un paradigma IMPERATIVO y FUNCIONAL porque tenemos declaracion de variables, declaracion de funciones, e invocacion a funciones
+
+	- b) La suma se implementa como una sumatorio de todos los valores del arreglo 'numeros' mientras que cada valor se almancena en la cola de un evento creado, luego de recorrer todos los elementos del arreglo, se itera por todos elementos de la cola del evento hasta vaciar la cola, para luego imprimir la suma total por pantalla.
+
+	- c) No hay paradigma que se aplique de forma pura porque tenemos caracteristicas de todos los paradigmas (declaracion de variables, declaracion de funciones, declaracion de eventos e invocaciones a funciones y eventos)
+
+	- d) Las funciones se utilizan como de primera clase porque se invocan 'procesar_eventos()', y son enviadas como parametro 'eventos.put(evento_sumar)'
+
+	- e)
+
+- Codigo 6:
+	- a) 
+
+- Codigo 7:
+	- a) Representado en un pardigma FUNCIONAL e IMPERATIVO donde tenemos definicion de funciones, invocacion de funciones y asignacion de funcion a variables.
+
+	- b) La suma se implementa mediante una funcion LAMBDA donde nuestra variable x es 'numeros' y nuestra expresion N es la lista de numeros concatenada en el print. Dentro de la funcion cada elemento del arreglo se suma con su posterior inmediato.
+
+	- c) No hay paradigma que se aplique de forma pura porque tenemos una declaracion de variable 'suma' propia de paradigma imperativo y luego solo definicion de funciones y llamados a funciones.
+
+	- d) Las funciones se utilizan como de primera clase porque se invocan 'print(suma_lista()([1, 2, 3, 4, 5]))', y son enviadas como parametro dentro del mismo 'print' y dentro de la funcion lambda donde tambien se retornan como resultado.
+
+	- e)
