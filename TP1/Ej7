@@ -1,0 +1,47 @@
+- Linea 1: class A {
+	- Paradigma IMPERATIVO con definicion de clase 'A'
+
+- Linea 2: constructor(x) {
+	- Paradigma IMPERATIVO con declaracion de metodo 'constructor' de parametor 'x'
+
+- Linea 3: this.x = x; }
+	- Paradigma IMPERATIVO y ORIENTADO A OBJETOS con asignacion a atributo 'x' del objeto 'this'
+
+- Linea 4: calcular() {
+	- Paradigma IMPERATIVO con declaracion de metodo 'calcular' sin parametros
+
+- Linea 5: const sumacuadrados = [1, 2, 3, 4].
+	- Paradigma IMPERATIVO con declaracion de variable 'sumacuadrados'
+
+- Linea 6: filter(num => num % 2 === 0).
+	- Paradigma ORIENTADO A OBJETOS con invocacion a funcion 'filter' del objeto 'Array' con invocacion a funcion lambda como parametro
+
+- Linea 7: map(even => even * even).
+	- Paradigma ORIENTADO A OBJETOS con invocacion al metodo 'map' del objeto 'Array' filtrado previamente y con invocacion a funcion lambda como parametro que contiene establecimiento de eventos.
+
+- Linea 8: reduce((x, y) => x + y);	
+	- Paradigma ORIENTADO A OBJETOS con invocacion al metodo 'reduce' del objeto 'map' con invocacion a funcion lambda como parametro
+
+- Linea 9: console.log(`Resultado del cálculo: ${sumacuadrados}`);
+	- Paradigma ORIENTADO A OBJETOS con invocacion al metodo 'log' del objeto 'console' con seleccion de variable 'sumacuadrados' como parametro
+
+- Linea 10: setTimeout(() => {this.res(sumacuadrados);}, 0);
+	- Paradigma FUNCIONAL con invocacion a funcion lambda donde variable x es una invocacion a funcion 'setTimeout', expresion N es invocacion al metodo 'res' del objeto 'this' con una seleccion de atributo 'sumacuadrados' como parametro, y expresion M es el numero 0
+
+- Linea 11: res(resultado) {
+	- Paradigma IMPERATIVO con declaracion de metodo 'res' con seleccion de variable 'resultado' como parametro.
+
+- Linea 12: console.log(`Resultado ${resultado}`); }
+	- Paradigma ORIENTADO A OBJETOS con invocacion al metodo 'log' del objeto 'console' con seleccion de variable 'resultado' como parametro
+
+- Linea 13: function ejecutar() {
+	- Paradigma FUNCIONAL con declaracion de funcion 'ejecutar'
+
+- Linea 14: let a1 = new A(3);
+	- Paradigma ORIENTADO A OBJETOS con declaracion de objeto 'a1' de la clase 'A' con numero 3 como parametro de la instancia.
+
+- Linea 15: a1.calcular(); }
+	- Paradigma ORIENTADO A OBJETOS con invocacion del metodo 'calcular' del objeto 'a1'
+
+- Linea 16: ejecutar();
+	- Paradigma FUNCIONAL con invocacion a funcion 'ejecutar'
