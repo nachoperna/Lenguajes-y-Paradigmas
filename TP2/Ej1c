@@ -1,0 +1,15 @@
+- Ejercicio 1c
+	c.1) z := x + y
+		El registro de activacion en el tope de la pila en el momento de ejecucion de la asignacion es el RA C porque es donde se declara la variable 'z', ya se conoce 'x' y puede conocerse 'y'
+
+	c.2) w := x + z
+		El registro de activacion en el tope de la pila en el momento de ejecucion de la asignacion es el RA D porque la declaracion de 'w' es local a D, ya se conoce 'x' y 'z' por alcances globales.
+
+	c.3) w := x + y
+		El registro de activacion en el tope de la pila en el momento de ejecucion de la asignaciones es el RA D porque la declaracion de 'w' es local a D, se conoce 'x' y puede conocerse 'y' por alcances globales.
+
+	c.4) x := z
+		No es posible realizar la asignacion porque la variable 'z' es local a C y solo puede ser usada dentro de su ambito local y estamos por fuera del mismo en su ambito global.
+
+	c.5) x := y
+		No es posible realizar la asignacion porque la variable 'y' es local a B y solo puede ser usada dentro de su ambito local y estamos por fuera del mismo en su ambito global de A.

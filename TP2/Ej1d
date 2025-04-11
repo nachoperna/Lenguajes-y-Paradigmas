@@ -1,0 +1,2 @@
+- Ejercicio 1d
+	- La asignacion 'w:= x + z' desde F se realizaria primero buscando si las variable del lado derecho de la asignacion 'x' y 'z' se encuentran dentro del alcance de F, si estan dentro de su alcance EN COMPILACION, las busca para realizar la operacion aritmetica correspondiente EN EJECUCION y luego de realizar la operacion entonces asigna los valores a la variable 'w' EN EJECUCION posteriormente de comprobar su alcance en compilacion.
