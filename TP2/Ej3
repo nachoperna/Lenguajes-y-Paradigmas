@@ -1,0 +1,32 @@
+- Ejercicio 3
+
+	- a)
+		Caso 1:
+			MOV R1, $87B0
+				- guardar la direccion absoluta $87B0 en la variable R1
+			ADD R1, $432A
+				- sumar la direccion absoluta $432A a la variable R1
+			MOV $9D86, R1
+				- guardar el contenido de la variable R1 en la direccion absoluta $9D86
+
+		Caso 2:
+			MOV R2, RP
+				- guardar el puntero de pila en la variable R2
+			MOV RP, RP[8]
+				- guardar en RP el valor apuntado por RP+8
+			MOV R, RP[40]
+				- guardar el contenido de la direccion RP+40 en la variable R
+			MOV RP, R2
+				- se restaura el valor original del puntero de pila guardando el contenido de R2 en RP
+			MOV RP, RP[8]
+				- guardar en el puntero de pila el valor de la direccion RP+8
+			MOV RP, RP[8]
+				- guardar en el puntero de pila el valor de la direccion RP+8
+			ADD R, RP[20]
+				- sumar el contenido de la direccion RP+20 en la variable R
+			MOV RP, R2
+				- guardar el contenido de R2 en el puntero de pila
+			MOV RP[20], R
+				- guardar el contenido de la variable R en la direccion RP+20
+
+	- b) La diferencia esencial es que en el primer caso usamos direcciones absolutas de memoria para obtener los valores y actualizar direcciones especificas, mientras que en el segundo caso usamos direcciones relativas para el desplazamiento entre bloques usando como referencia al puntero de pila de nuestro registro de activacion base.
