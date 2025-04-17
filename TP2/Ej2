@@ -1,0 +1,26 @@
+- Ejercicio 2
+	
+	A [
+		B [
+			C [
+				D []
+				E []
+				F []
+			]
+		]
+	]
+
+	- a) No puede haber mas de un arbol de anidamiento porque cada unidad es llamada localmente solo una vez.
+
+	- b) "El alcance de x es B, D, E y F”
+		A [
+			B [
+				C [
+					int x
+					D []
+					E []
+					F []
+				]
+			]
+		]
+		La afirmacion no es correcta porque B no tiene acceso localmente a X, que su tiempo de vida se encuentra dentro del ambito local de C y no puede usarse por fuera de esa unidad.
