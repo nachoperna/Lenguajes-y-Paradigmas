@@ -1,0 +1,8 @@
+- Ejercicio 6
+
+	- a) 
+		La conducta que describe la ejecucion de la instruccion es: 
+			a.1) Se produce un error siempre que se arriba a esta instrucción
+		porque justo antes de la instruccion se modifica el valor del limite m al cual zz() tiene acceso global, y como el lenguaje verifica limites en tiempo de ejecucion, al comprobar cual es el valor de m en ese momento actual para verificar si el acceso al espacio del arreglo es valido, se encuentra que se quiere acceder a un valor por debajo del limite (15 < 17).
+
+	- b) Ocurrira exactamente lo mismo descripto en el punto anterior, porque al terminar la primera ejecucion de zz() se desapila de la pila de ejecucion la unidad de zz y se apila nuevamente el registro de activacion creando otra vez la variable local costo y encontrandose con el mismo problema.
