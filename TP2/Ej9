@@ -1,0 +1,17 @@
+- Ejercicio 9
+	
+	- a) Resulta más eficiente ubicar todos los límites en el descriptor del registro de activación que contiene la variable z.
+
+		Verdadero. Porque en ejecucion cuando se apila el registro el acceso a los limites es instantaneo y no hay retardo en tener que buscarlos en otro lugar de memoria.
+
+	- b) Resulta menos costoso ubicar todos los límites en el código ejecutable.
+
+		Verdadero. Es menos costoso pero las constantes pueden ir en el codigo ejecutable, no todos los limites en este caso.
+
+	- c) Resulta más eficiente ubicar las constantes en el código ejecutable y los valores de n y m en el registro de activación que contiene la variable z.
+
+		Verdadero. 
+
+	- d) n debe almacenarse en el registro de activación si NO se verifican límites pero el arreglo está almacenado por filas.
+
+		
