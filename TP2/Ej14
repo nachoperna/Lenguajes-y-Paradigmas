@@ -1,0 +1,22 @@
+- Ejercicio 14
+	
+	- i)
+		b) Variable global a todas las unidades
+		d) Variable estática declarada en el abuelo de la unidad
+		h) Variable estática declarada en el padre de la unidad
+		f) Variable semi dinámica declarada en el padre de la unidad
+		a) Variable estática local
+		e) Variable dinámica con nombre local
+		c) Variable semiestática local
+		g) Variable anónima apuntada por una variable local
+		i) Variable estática declarada en una unidad hija (no esta al alcance)
+
+		- En una variable global todo el programa tiene acceso a ella asique no hay nada con mayor alcance que eso. 
+		- Las variables estaticas que al no cambiar su lugar de almacenamiento ninguna unidad al alcance pierde el acceso y cuanto este definida mas alcance tendra.
+		- Una variable semi dinamica declarada en el padre tiene alcance desde el padre y desde la unidad actual, mientras que cualquier variable local solo puede ser usada dentro de la unidad actual.
+		- En el caso de una variable anonima apuntada por una variable local, el alcance sera solamente el de la misma variable local
+		- Una variable cualquiera declarada dentro de una unidad hija no puede ser alcanzada si no estamos en el registro de activacion de la unidad hija.
+
+	- ii)
+
+	- iii)
