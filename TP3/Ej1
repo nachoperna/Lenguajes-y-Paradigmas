@@ -1,0 +1,5 @@
+- Ejercicio 1
+	
+	- a) El programa imprime el numero 2 porque la funcion b() encuentra la variable x en el ambito global definida sobre a(). Si el lenguaje tiene ambito definido por anidamiento sintactico implica que el ambito global de una funcion puede pertenecer al ambito local de otra o viceversa, y eso establece el alcance de cada variable.
+
+	- b) Si el lenguaje tuviese ambito dinamico la salida del programa seria el numero 2 porque el ambito de las funciones cambiaria dinamicamente dependiendo el lugar donde es invocada. En este caso, la funcion a() invoca a la funcion b() por lo que el ambito global de b() pasaria a ser ahora el ambito local de a() y encontraria primero la variable x=2 definida en a() para imprimir.
