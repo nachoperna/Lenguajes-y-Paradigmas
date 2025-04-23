@@ -1,0 +1,17 @@
+- Ejercicio 4
+
+	- a) 
+		Impresion: 1 3 1
+		En la primera salida, la funcion mysub declara una variable x que tiene alcance local por fuera de las funciones que se definan/invoquen dentro de ella, por lo que la funcion imprime no tiene alcance a la misma y encuentra como mas proxima la variable global x.
+		En la segunda salida, la funcion localsub declara una variable x que tiene alcance local para todas las funciones que definan/invoquen dentro, por lo que la funcion imprime encuentra mas cercana a esa x con alcance G1.
+		En la tercera salida, la funcion imprime encuentra como variable x mas cercana la definida globalmente en el programa.
+
+	- b)
+		La instruccion "$x=1" refleja que Perl es un lenguaje de tipos dinamicos.
+		La instruccion "local $x = 3" refleja que Perl es un lenguaje con binding dinamico porque la funcion imprime() es invocada dentro de localsub() y cambia el alcance que tiene hacia las variables del programa.
+
+	- c)
+		Respondida en a)
+
+	- d)
+		Para que nunca se imprima el valor 3 se deberia cambiar la instruccion "local $x = 3" dentro de localsub() por "my $x = 3" para que esa variable solo tenga alcance local quitando las funciones que se definan o invoquen dentro, de esa manera imprime() solo podria encontrar la variable global $x con valor 1.
