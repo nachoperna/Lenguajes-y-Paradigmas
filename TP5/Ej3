@@ -1,0 +1,10 @@
+- Ejercicio 3
+
+	- a)
+		i. Si el pasaje de parametro es por referencia, la funcion ZZ se ejecuta 3 veces en la funcion PARAM, una por la creacion del closure "m" y luego por la obtencion de valores en las operaciones aritmeticas de "h" y "n". Al ser pasaje por referencia cada vez que "c" sea invocado se debe ir a buscar el valor al parametro real.
+
+		ii. Si el pasaje de parametro es por copia-valor, la funcion ZZ se ejecuta 1 vez en el pasaje de parametro "param(d,e,ZZ(x));" donde se copia el valor de retorno de la funcion en el parametro formal "c" y se utiliza ese valor durante toda la ejecucion de PARAM.
+
+		iii. Si el pasaje de parametro es por nombre, de igual forma que en pasaje por referencia, la funcion ZZ se ejecuta 3 veces porque se recompila el codigo cambiando el parametro formal "c" por el llamado "ZZ(x)" donde en cada asignacion para obtener el valor de ZZ(x) se debe ejecutarla.
+
+	- b) Suponiendo que la variable x es global a PARAM y ZZ, el resultado se ve afectado si el tipo de pasaje de parametro es por REFERENCIA y POR NOMBRE porque se estaria modificando el valor de x en medio de las asignaciones y debemos ejecutar la funcion ZZ por cada aparicion del parametro formal "c" entonces "m" "h" y "n" seran asignadas con valores de "x" distintos. Tambien si "x" no es una variable global, el resultado puede verse afectado si el lenguaje es de alcance dinamico y la funcion ZZ utiliza la variable "x" perteneciente al ambito donde es invocada.
