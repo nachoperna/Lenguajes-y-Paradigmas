@@ -1,0 +1,56 @@
+- Ejercicio 5
+
+	proc sub1 (a,b,c,d: int; e: function()) # Lenguaje tipo Algol
+	sub1(x - y,7, z[i], ,sub2) # Mismo TPP para todos los parametros y valor por defecto en parametros faltantes.
+
+	- a)
+		¿Error durante la compilacion?
+			- PR: NO
+			- PN: NO 
+			- PCV: NO
+			- PCR: NO
+			- PCVR: NO
+			
+			En todos los TPP habra error de compilacion dentro de sub1() si:	
+			-a: solo hay error si se utiliza la expresion en el lado izquierdo de una asignacion.
+			-b: solo hay error si se utiliza la constante en el lado izquierdo de la una asignacion.
+			-e: solo hay error si se utiliza la funcion en el lado izquierdo de la una asignacion.
+
+		¿Error en ejecucion?
+			- PR: NO
+			- PN: NO
+			- PCV: NO
+			- PCR: NO
+			- PCVR: NO
+
+			- solo existiria error en ejecucion si los valores de las variables x,y o el indice i no esta disponible para accederlos.
+
+		¿Resultados no esperados? (no entiendo bien a que se refiere si no se muestra el cuerpo de sub1())
+			- PR: NO
+			- PN: NO
+			- PCV: NO
+			- PCR: NO
+			- PCVR: NO
+
+	- b) 
+		¿Cuáles de parámetros reales y formales existen en el registro de activación de sub1 y cuáles en el registro de activación del llamador?
+			- PR, PCV, PCR, PCVR: en el RA de sub1 existen los parametros formales a, c, d (con su valor default) y e, y el parametro real constante 7. En el RA del llamador existe el parametro real x, y, z[i] y sub2. 
+
+			- PN: en el RA de sub1 no existen parametros formales ni reales, se utilizan los parametros reales que estan el RA del llamador.
+
+		¿Cómo se modifican cada uno de éstos en el momento de finalizar la invocación en PCVR, PN y PCV?
+			- PCV: solo puede modificarse el parametro formal "c" en la ejecucion de la unidad sub1.
+
+			- PCVR, PN: solo puede modificarse el parametro real "z[i]" al finalizar la invocacion.
+
+	- c)
+		i. Si el primer parámetro es usado en sub1 en tres lugares diferentes, la cantidad de veces que se evalúa la expresión es mayor, si el pasaje es por PN que por PCV.
+			Verdadero. Si el pasaje de parametro es POR NOMBRE se reemplaza la invocacion de cada parametro formal por el real y se evalua la expresion en cada invocacion, en cambio, si el pasaje de parametro es por COPIA-VALOR se resuelve la expresion al inicio de la invocacion a sub1 y se guarda ese valor en el parametro formal "a" para toda la ejecucion.
+
+		ii. El PR y PCVR producen los mismos errores en los parámetros 3, 4 y 5
+
+		iii. z[i], x e y deben ser variables locales a la función llamadora
+			No necesariamente, solo necesitan estar al alcance sintactico de la funcion llamadora.
+
+		iv. Los parámetros formales de sub1 están al alcance de la función llamadora
+			Falso. En un lenguaje tipo Algol con alcance estatico, los parametros formales de sub1 pertenecen a su ambito local y no pueden ser accedidos fuera de este.
