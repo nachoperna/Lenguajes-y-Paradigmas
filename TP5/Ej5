@@ -48,6 +48,7 @@
 			Verdadero. Si el pasaje de parametro es POR NOMBRE se reemplaza la invocacion de cada parametro formal por el real y se evalua la expresion en cada invocacion, en cambio, si el pasaje de parametro es por COPIA-VALOR se resuelve la expresion al inicio de la invocacion a sub1 y se guarda ese valor en el parametro formal "a" para toda la ejecucion.
 
 		ii. El PR y PCVR producen los mismos errores en los parámetros 3, 4 y 5
+			Falso. El PR y PCVR producen los mismos errores en los parametros 4 y 5 porque no tienen una celda de memoria referenciada para ser escrita. El parametro 3 no produce error porque el elemento de un arreglo tiene una celda de memoria que puede modificarse.
 
 		iii. z[i], x e y deben ser variables locales a la función llamadora
 			No necesariamente, solo necesitan estar al alcance sintactico de la funcion llamadora.
