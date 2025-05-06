@@ -1,0 +1,13 @@
+- Ejercicio 11
+
+	- A: no se produce ningun problema porque la funcion f recibe todos los limites del arreglo y asigna un valor acorde al tipo del arreglo a una celda de memoria valida dentro de los limites.
+
+	- B: se produce error en tiempo de compilacion porque al verificar limites el compilador no sabe cual es el numero total de columnas del arreglo y es necesario porque el lenguaje almacena arreglos por filas y los limites se deducen de una cuenta matematica que necesita del numero total de columnas.
+
+	- C: se produce error de compilacion porque se esta intentando acceder a una celda de memoria no permitida por los limites del arreglo con limites constantes.
+
+	- D: se puede producir un error en tiempo de ejecucion porque el valor de la funcion random se conoce en ejecucion y si esta devuelve un numero mayor a 4 entonces se estaria intentando acceder a un lugar de memoria fuera de los limites del arreglo.
+
+	- E: se produce un error de compilacion porque no estan definidos al menos 3 de 4 limites del arreglo en el pasaje de parametro.
+
+	- F: no se produce ninguna problema porque el lenguaje almacena arreglos por filas y solo se necesita conocer el numero total de columnas para que el compilador pueda calcular todos los limites.
