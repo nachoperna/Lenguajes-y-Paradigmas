@@ -1,7 +1,7 @@
 - Ejercicio 14
 
 	- a) Ordenar en forma decreciente las semánticas de acuerdo al tamaño que ocupa el RA de la función llamada.
-		1.PCV
+		1.PCV (el tamaño es acorde al tamaño de la variable que copien)
 		1.PCR
 		1.PCVR (al usar copia se crean los parametros formales en el RA)
 		2.PR con alias (se crea el parametro formal en el parametro)
@@ -24,6 +24,7 @@
 		No ocurre nada pero es innecesario porque todas las funciones de un programa tienen acceso directo a una variable estatica global y no es necesario "intentar" ampliarle el alcance pasandola como parametro.
 
 	- g) En el inciso a) qué ocurre si se pasa un parámetro cuyo tipo es más pequeño que un puntero.
+		Seria un caso muy raro porque el puntero es un entero que ocupa minimas unidades de memoria (aprox 4 bytes) pero en ese caso el tamaño del registro de activacion para ese parametro estaria delimitado en su totalidad por el tamaño del puntero.
 
 	- h) ¿En cuáles semánticas puede haber errores de compilación debido a problemas de alcance? Ejemplificar
 	Proporcionar un ejemplo de un caso donde se produzca un error en tiempo de ejecución durante el llamado.
