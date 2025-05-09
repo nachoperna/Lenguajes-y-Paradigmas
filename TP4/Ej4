@@ -1,0 +1,3 @@
+- Ejercicio 4
+
+	La afirmacion es cierta porque no es necesario agregar un CR a "point" porque no es un puntero a ningun bloque del heap y tiene una direccion de memoria fija dentro del registro de activacion. Y tampoco es necesario agregarlo a "ppoint" porque es el unico puntero del programa que esta referenciando un solo bloque de memoria del heap, por lo que cualquier cambio de direccion en ppoint se sabe que produciria garbage.
