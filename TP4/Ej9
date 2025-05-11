@@ -1,0 +1,13 @@
+- Ejercicio 9
+
+	- a) Considerando que el tiempo de vida de las celdas de estas variables es de todo el programa, esto contribuye a disminuir la existencia de garbage.
+		Falso. Contribuye a aumentar la existencia de garbage porque se van acumulando mas bloques en la memoria que estan en uso y sin posibilidad de accederse por ningun otra variable que lo requiera.
+
+	- b) Un puntero a estas variables puede convertirse en un puntero colgado.
+		Falso. Estos bloques estan en uso y con un puntero podria accederse a un dato valido. Un puntero colgado se fabricaria si el espacio de memoria que apunta es liberado en la memoria.
+
+	- c) Una asignación a una variable inmutable, dentro de una iteración, provoca la creación sucesiva de garbage.
+		Verdadero. No puede cambiarse el valor de la celda de memoria de una variable inmutable por lo que se crearia un nuevo espacio de memoria con el nuevo valor en cada iteracion dejando el bloque apuntado anterior como garbage.
+
+	- d) Las variables inmutables pueden ser sólo de tipo string.
+		Falso. Las variables inmutables pueden ser de cualquier tipo si se lo especifica, pero las de tipo string ya son inmutables por defecto en la mayorua de los lenguajes.
