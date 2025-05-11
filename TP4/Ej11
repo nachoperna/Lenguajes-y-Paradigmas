@@ -1,0 +1,20 @@
+- Ejercicio 11
+	
+	- b) 
+		Linea 10 y 11: cannot borrow `x` as mutable, as it is not declared as mutable
+			- Se esta intentando prestar la direccion de la variable inmutable "x" como mutable y esto esta prohibido porque se le podria cambiar el valor en la misma celda de memoria con otro puntero a un espacio que no deberia cambiar.
+
+		Linea 3: cannot assign twice to immutable variable `x`
+			- Se esta intentando asignar un nuevo valor a una variable inmutable y Rust ademas no admite shadowing por lo que no se crea un nuevo bloque de memoria en el heap con este nuevo valor produciendo error.
+
+		Linea 10 y 11: cannot borrow `x` as mutable because it is also borrowed as immutable
+			- Se esta intentando prestar a "x" como mutable pero ya esta prestada como inmutable en la linea 8 a p3, esto generaria una inconsistencia donde p3 no podria modificar la memoria de "x" y otras variables si.
+
+		Linea 12 y 13: cannot borrow `y` as mutable because it is also borrowed as immutable
+			- La inversa que el caso anterior, la variable "y" esta declarada como mutable, se presta como inmutable en la linea 9 a p4 y luego se quiere prestar como mutable a p7.
+
+		Linea 16: cannot assign to `*p3`, which is behind a `&` reference
+			- Se esta intentando cambiar el valor de lo referenciado por p3 pero esto es la direccion de la variable inmutable "x" por lo que la operacion es invalida.
+
+		Linea 17: cannot assign to `*p4`, which is behind a `&` reference
+			- Se esta intentando cambiar el valor de lo referenciado por p4 pero es la celda inmutable de "y" que fue prestada, que si bien "y" esta declarada como mutable, fue prestada a p4 como inmutable y produce el mismo error anterior.
