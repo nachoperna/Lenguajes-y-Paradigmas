@@ -1,0 +1,30 @@
+- Ejercicio 4
+	
+	- i) 
+		Diferencias SINTACTICAS:
+			- "a" y "b" deben tener un espaciado entre el signo "=" y las variables de ambos lados a diferencia de "c" y "d".
+			- "d" esta intentando asignar un valor a una expresion "x+y" que no posee una celda de memoria donde guardar el valor.
+
+		Diferencias SEMANTICAS:
+			- "b" realiza asignaciones simples guardando valor en una sola celda de memoria por asignacion y "a" "c" y "d" realizan asignaciones multiples congelando el valor de las variables del lado derecho antes de comenzar con cada asignacion individual.
+
+	- ii)
+		a) x = 4.0; y = 7; z = 5
+			- En la asignacion de "y" como se admite widening se convierte el tipo de "y" a double para poder hacer la suma con "x" y luego se hace una conversion inversa para guardar el valor en la variable "y" de tipo "long int" que es menos abarcativo que double, perdiendo los decimales y guardando el piso del numero que es lo que hacen la mayoria de lenguajes tipo Algol (preguntado a chatgpt).
+
+		b) x = 4.0; y = 8; z = 5
+			- Al ser una asignacion simple los valores anteriores de las variables no se "congelan" y a llegar a la asignacion de "y" el valor de "x" fue modificado previamente, por lo que la suma de x+y=4+4.
+
+		- c) x = 4.0; y = 5; z = 7
+			- Al ser una asignacion multiple se congelan los valores de todas las variables involucradas en el lado derecho de la asignacion antes de comenzar 
+
+		- d) x = 4.0; y = 5; x+y = ERROR
+			- La asignacion multiple no puede completarse y ninguna asignacion individual se realiza porque x+y se encuentra del lado izquierdo de la asignacion y no tiene una celda de memoria para referenciar.
+
+	- iii) 
+		No se utilizan variables temporales porque como maximo se utiliza una sola expresion en las asignaciones y no es necesario generar una variable temporal que guarde un valor intermedio.
+
+	- iv)
+		En "a" y "c" se producen perdida de precision en la asignacion "y=x+y" porque se esta intentando guardar el resultado de la suma de un "double" con un "long int" donde el tipo mas abarcativo es el double, generando un resultado de tipo double pero que debe guardarse en una variable de tipo long int perdiendo los decimales del resultado. Y en la asignacion "x=x+y" por la misma razon pero ahora el resultado se debe guardar en una variable de tipo int generando el mismo efecto.
+
+		
