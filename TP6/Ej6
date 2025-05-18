@@ -1,0 +1,62 @@
+- Ejercicio 6
+
+	- a)
+		//6 es imposible de compilar porque es un puntero sin espacio de memoria asignado para apuntar, por lo que su puntero es nulo y seria imposible asignarle un valor a la celda apuntada en //7
+
+	- b) 
+		Fuera de //6 que genera error en tiempo de compilacion, la instruccion //7 generaria error en tiempo de ejecucion porque las constantes estan empaquetadas en el codigo de ejecucion, y se intenta asignar una constante a una celda de memoria no especificada del lado izquierdo.
+
+		//8 podria provocar resultados inesperados porque a4 se convierte en un puntero que apunta a otro puntero.
+
+	- c)
+		No hay instrucciones que generen garbage porque el cambio de lo apuntado por a2 no afecta al bloque de memoria en heap que apuntaba porque tambien es referenciado por a4 quien nunca cambia su puntero, por lo que no queda un bloque usado sin acceso.
+
+		En el caso de que el compilador inicialice a4 con un puntero a un lugar basura de memoria, entonces la instruccion //8 generaria garbage porque la basura apuntada por a4 quedaria ocupando un bloque de memoria sin acceso por el lenguaje.
+
+	- d)
+		La salida S1 puede ser valida porque a1 y a2 son 2 variables semi estaticas dentro del registro de activacion de fun1 por lo que estan ubicadas en espacios contiguos, luego a3 y a4 son variables estaticas ubicadas fuera del registro de activacion de fun1 en el lugar de las variables estaticas del programa, por lo que son contiguas entre si pero lejanas al resto. Al imprimir a2 se busca la direccion de lo apuntado por a2 que en //1 tomo la direccion de a1 por lo que esta bien que la direccion sea la de a1 ($!00) y finalmente se busca la direccion de lo apuntado por a4 que es un bloque de memoria en el Heap que inicialmente era apuntado por a2 (si se imprime el valor de lo apuntado por a4 veriamos un 3).
+
+	- e)
+		El codigo M1 es la correcta representacion en memoria del programa porque:
+		- a1 y a2 son direccion contiguas en el registro de activacion de fun1()
+		- a1 es inicializado en 1 en //1 y luego cambia su valor a 3 en //9
+		- a2 apunta a un bloque de memoria en el heap ($1000) al inicializarse en //2 y luego cambia su puntero a la direccion de a1 ($100) en //11
+		- a3 y a4 son direcciones contiguas en el espacio de variables estaticas del programa lejos del RA de fun1().
+		- a3 es inicilizado con un 3 en //5
+		- a4 no es inicializado por lo que su primer direccion apuntada es nula o basura dependiendo de como lo maneje el compilador, y luego en //8 su puntero apunta a lo apuntado por a2 que en ese momento es un bloque de memoria en el heap con direccion $1000.
+
+	- f)
+		//1 : 0 desreferencing porque una constante no tiene un espacio de memoria asignado.
+
+		//2: 0 desreferencing porque no se accede a ninguna celda a extraer valor, solo se asigna un espacio de memoria.
+
+		//3: 0 desreferencing porque una constante no tiene un espacio de memoria asignado.
+
+		//4: no hay asignacion
+
+		//5: 0 desreferencing porque una constante no tiene un espacio de memoria asignado.
+
+		//6: no hay asignacion
+
+		//7: 0 desreferencing porque una constante no tiene un espacio de memoria asignado.
+
+		//8: 1 desreferencing porque se entra a la celda de memoria del puntero a2 para conocer a que direccion de memoria esta apuntando y asignarlo a a4.
+
+		//9: 1 desreferencing porque se accede a la celda de memoria de la variable estatica a3 para extraer el valor 3 y asignarlo a la celda de a1.
+
+		//10: 1 desreferencing porque se accede a la celda de memoria de la variable estatica a3 para extraer el valor 3 y asignarlo a la celda de lo apuntado por a2.
+
+		//11: 0 desreferencing porque se hace una supresion de extraccion de valor de la variable a1 quedandonos solo con su direccion de memoria.
+
+	- g)
+		1) Falso. Cuando se desapila el registro de activacion de fun1() tambien se eliminan las variable estaticas creadas dentro de su ejecucion y que solo podia acceder la funcion misma.
+
+		2) La variable a2 es semiestatica porque tiene tipo estatico, se almacena en el registro de activacion de la funcion que la define, y su contenido es solo una direccion de memoria que no involucra cambios de tamaño.
+
+		3) Al finalizar el programa a4 contiene la direccion de una variable dinamica anonima porque queda apuntado a un bloque de memoria en el heap que no tiene nombre, puede contener cualquier tipo de contenido y puede aumentar o reducir su tamaño.
+
+		4) Falso. Al finalizar el programa, en la instruccion //11 se cambia el contenido de la variable a2 por la direcion de la variable a1 que es semi estatica y se almacena en el registro de activacion de fun1.
+
+		5) Falso. Ninguna de las anteriores. No daria error de compilacion porque si bien a3 es estatica, su direccion se compone de la direccion base de las variables estaticas mas un offset para encontrarla, y en el lado izquierdo de la asignacion se esta esperando una direccion de memoria porque a2 es un puntero.
+
+		6) Si el puntero a4 se inicializa con contenido basura, entonces la afirmacion es Verdadera porque tendriamos en memoria la variable dinamica anonima apuntada por a4 en //6 que luego se convierte en garbage y lo apuntado por a4 al finalizar el programa que corresponde a otro bloque de memoria en el heap. En cambio si el puntero a4 se inicializa en nulo, entonces la afirmacion es Falsa porque solo tendriamos el bloque de memoria apuntado por a4 al finalizar el programa.
