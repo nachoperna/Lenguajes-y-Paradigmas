@@ -1,0 +1,61 @@
+- Ejercicio 13
+
+	- a)
+		i. Las caracteristicas comunes es que son cinco lenguajes interpretados con inferencia de tipos y compatibilidad por nombre, porque no vemos en el codigo ninguna declaracion de tipado entonces no tienen tipos estaticos y estos son inferidos por el lenguaje segun el valor de la asignacion del lado derecho de las variables volviendolos un lenguaje interpretado, y ninguno de ellos dio error en linea 8 donde se esta intentando asignar a un tipo inferido float un tipo int, teniendo diferentes nombres de tipo.
+
+		ii. En la salida S5 se evidencian variables pseudo-constantes o de solo lectura, porque no es posible asignar otro valor del mismo tipo a una variable, dejando en claro que una vez que la definimos no podemos modificarla. No se evidenican incompatibilidad de tipos porque la primera inferencia de tipos en la variable "b" es de tipo String. No se envidencia lenguajes con tipos dinamicos porque en ese caso cualquier variable aceptaria cualquier tipo de valor. No se evidencia alcance dinamico porque todo el codigo parece estar contenido en la misma unidad.
+
+		iii. El lenguaje tiene conversiones explicitas porque se necesita de un casting explicito por el programador para que el lenguaje convierta en una variable auxiliar el tipo inferido de la variable "c" para poder realizar la operacion con un entero.
+
+		iv. 
+			S1: no cambian los tipos de ninguna variable.
+			S2: no cambian los tipos de ninguna variable.
+			S3: no cambian los tipos de ninguna variable.
+			S4: en linea 8 se cambia el tipo de "c" al tipo que recibe del lado derecho de la asignacion.
+			S5: no cambian los tipos de ninguna variable.
+
+		v. 
+			S1: 
+				- i5: variable auxiliar para guardar el contenido de la operacion.
+				- i6: variable auxiliar para guardar el contenido de la operacion.
+			S2: no se llegan a usar variables auxiliares.
+			S3: no se llegan a usar variables auxiliares.
+			S4: 
+				- i5: una variable auxiliar para guardar el contenido de la conversion del flotante "c" a entero y otra para guardar el resultado de la operacion.
+				- i6: una variable auxiliar para guardar el contenido de la conversion del string "b" a entero para realizar la operacion y otra para guardar el resultado.
+			S5: no se llegan a usar variables auxiliares.
+
+		vi. 
+			-Linea 5: dereferencing a ambas variables junto con casting del lado derecho a la variable "a" para poder operar con su tipo mas abarcativo float.
+
+			-Linea 6: dereferencing a ambas variables.
+
+			-Linea 8: dereferencing y casting del lado derecho para la variable "a".
+
+		vii. Compatibilidad de tipos de ADA = por nombre
+			-Linea 7: error de compilacion porque del lado derecho de la asignacion estamos recibiendo un tipo String y del lado izquierdo tenemos un String(1..1)
+
+			-Linea 8: error de compilacion porque del lado derecho de la asignacion estamos recibiendo un tipo de nombre "Integer" y del lado izquierdo tenemos "Float".
+
+
+	- b)
+		¿Posee tipos dinamicos?
+			S1: SI
+			S2: SI
+			S3: SI
+			S4: SI
+			S5: SI
+
+		¿Posee conversiones implicitas? (indicar tipos implicados)
+			S1: SI (int->float)
+			S2: NS (no sabemos el motivo del error)
+			S3: NS (no sabemos el motivo del error)
+			S4: SI (float->int, string->int)
+			S5: SI (no tuvo error de compilacion en 5 y 6 por lo que tiene conversiones implicitas)
+
+		¿Posee diferentes semanticas de operador + para cada tipo? (indicar tipos implicados en la suma)
+			S1: SI (ìnt+float=float, int+string=string)
+			S2: NS
+			S3: NS
+			S4: SI (ìnt+float=int, int+string=int)
+			S5: NS
