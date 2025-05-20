@@ -1,0 +1,33 @@
+- Ejercicio 9
+
+	- a) Casting, widening y desreferencing entre A y B.
+		int A = 10;
+		float B = A = A/3;
+		- Se produce desreferencing para extraer el valor de la variable A, casting para que el resultado de la operacion sea compatible con el tipo del lado izquierdo de la asignacion y widening porque la variable A es de tipo entero pero debe almacenar un resultado de tipo flotante.
+		- Se necesita variable auxiliar para obtener y asignar el valor de la operacion A/3
+
+	- b) Tres desreferencing entre C y A
+		int B = 1;
+		int *D = B;
+		int **A = D;
+		int C = A;
+		- A es un puntero a un puntero a entero, por lo que se hace 1 extraccion de valor para obtener la direccion del puntero a entero, 1 extraccion de valor para obtener la direccion del entero y 1 extraccion de valor para obtener el entero.
+
+	- c) Desproceduring entre D y B.
+		def D() -> int:
+			return 1
+		int B = D()
+		- Se produce desproceduring entre D y B cuando se debe ejecutar D para obtener un valor del lado derecho de la asignacion.
+
+	- d) Casting, Desproceduring y desreferencing entre C y D.
+		def D() -> float:
+			float A = 1.1
+			return A
+		int B = D()
+		- Se produce un desproceduring porque debe ejecutarse D para obtener un valor del lado derecho de la asignacion, un desreferencing porque el retorno de D es una variable a la que debe accederse a su celda para obtener el valor y un casting porque este valor obtenido es de tipo flotante y debe almacenarse en una variable de tipo entero.
+
+	- Declaraciones finales:
+		int **C;
+		int A;
+		<type+> B;
+		<type> func D();
