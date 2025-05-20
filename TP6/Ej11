@@ -1,0 +1,21 @@
+- Ejercicio 11
+
+	- a) v contenga CDA11 (direccion de memoria de w)
+		ALGOL: v := w
+		C: v = $w;
+
+	- b) Es posible que u contenga el valor 12340. Explicar.
+		Si es posible porque "u" es un puntero a un puntero a un entero, por lo que su contenido tiene que ser un puntero a un entero y la direccion 12340h cumple.
+
+	- c) Es posible que u contenga el valor CDA11. Explicar.
+		No es posible porque CDA11h es la direccion de un entero, y "u" necesita almacenar el valor de un puntero a un entero.
+
+	- d) Escribir las definiciones que permitan hacer que u acceda al numero 00017.
+		ALGOL: u := w
+		C: *u = $w;
+
+	- e) Utilizando u y el resultado de d incrementar 17 en 1.
+		ALGOL: u := u + 1
+		C: **u = **u + 1;
+
+
