@@ -22,9 +22,9 @@
 			- La asignacion multiple no puede completarse y ninguna asignacion individual se realiza porque x+y se encuentra del lado izquierdo de la asignacion y no tiene una celda de memoria para referenciar.
 
 	- iii) 
-		No se utilizan variables temporales porque como maximo se utiliza una sola expresion en las asignaciones y no es necesario generar una variable temporal que guarde un valor intermedio.
+		Se utilizan variables temporales para guardar los nuevos valores de todas las conversiones de tipos en caso de casting del lado derecho de la asignacion y tambien una variable temporal por cada variable involucrada del lado derecho de una asignacion multiple para preservar el valor anterior previo a esta.
 
 	- iv)
-		En "a" y "c" se producen perdida de precision en la asignacion "y=x+y" porque se esta intentando guardar el resultado de la suma de un "double" con un "long int" donde el tipo mas abarcativo es el double, generando un resultado de tipo double pero que debe guardarse en una variable de tipo long int perdiendo los decimales del resultado. Y en la asignacion "x=x+y" por la misma razon pero ahora el resultado se debe guardar en una variable de tipo int generando el mismo efecto.
+		En "a" y "c" se producen perdida de precision en la asignacion "y=x+y" porque se esta intentando guardar el resultado de la suma de un "double" con un "long int" donde el tipo mas abarcativo es el double, generando un resultado de tipo double pero que debe guardarse en una variable de tipo long int perdiendo los decimales del resultado. Y en la asignacion "z=x+y" por la misma razon pero ahora el resultado se debe guardar en una variable de tipo int generando el mismo efecto.
 
 		
