@@ -1,0 +1,56 @@
+- Ejercicio 14 
+	
+	a) Indicar que imprime el programa.
+		- Se crean las variables temporales x1 y1 z1 para guardar los valores previos a la asignacion multiple.
+		f(0,0,0)
+		x=0+1=1
+		y=0+0=0
+		z=0+0+0=0
+		El programa imprime 1 0 0.
+
+	b) Indicar qué imprime el programa si el lenguaje no crea variables temporales para la asignación.
+		- Si no crea variables temporales para la asignacion puedo suponer que la asignacion multiple se comporta como simple.
+		f(0,0,0)
+		x=0+1=1
+		y=1+0=1
+		z=1+1+0=2
+		El programa imprime 1 1 2.
+
+	c) Indicar qué imprime el programa si el lenguaje soporta asignaciones múltiples, no soporta retorno de valores múltiples y tiene pasaje por Copia Valor, Copia Valor Resultado, Copia resultado, Referencia y Nombre.
+		- Si no soporta retorno de valores multiples puedo suponer que la funcion no tiene retorno.
+		
+		- TPP CPV:
+			f(0,0,0)
+			x=0+1=1
+			y=0+0=0
+			z=0+0+0=0
+			El programa imprime 0 0 0
+
+		- TPP CPVR:
+			f(0,0,0)
+			x=0+1=1
+			y=0+0=0
+			z=0+0+0=0
+			a=1
+			b=0
+			c=0
+			El programa imprime 1 0 0
+
+		- TPP CPR:
+
+		- TPP PR:
+			f(0,0,0)
+			x=0+1=1
+			a=1
+			y=1+0=1
+			b=1
+			z=1+1+0=2
+			c=2
+			El programa imprime 1 1 2
+
+		- TPP PN:
+			f(0,0,0)
+			a=0+1=1
+			b=0+0=0
+			c=0+0+0=0
+			El programa imprime 1 0 0
