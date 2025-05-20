@@ -49,7 +49,7 @@
 		//11: 0 desreferencing porque se hace una supresion de extraccion de valor de la variable a1 quedandonos solo con su direccion de memoria.
 
 	- g)
-		1) Falso. Cuando se desapila el registro de activacion de fun1() tambien se eliminan las variable estaticas creadas dentro de su ejecucion y que solo podia acceder la funcion misma.
+		1) Falso. Las variables a3, a4 y la dinamica anonima del heap son las de mayor timepo de vida porque son las ultimas en eliminarse cuando se termina el progarma.
 
 		2) La variable a2 es semiestatica porque tiene tipo estatico, se almacena en el registro de activacion de la funcion que la define, y su contenido es solo una direccion de memoria que no involucra cambios de tamaño.
 
