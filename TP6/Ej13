@@ -16,9 +16,10 @@
 
 		v. 
 			S1: 
-				- i5: variable auxiliar para guardar el contenido de la operacion.
-				- i6: variable auxiliar para guardar el contenido de la operacion.
-			S2: no se llegan a usar variables auxiliares.
+				- i5: variable auxiliar para guardar el contenido de la operacion y conversiones.
+				- i6: variable auxiliar para guardar el contenido de la operacion y conversiones.
+			S2: 
+				- i5: variable auxiliar para guardar el contenido de la operacion y conversiones.
 			S3: no se llegan a usar variables auxiliares.
 			S4: 
 				- i5: una variable auxiliar para guardar el contenido de la conversion del flotante "c" a entero y otra para guardar el resultado de la operacion.
@@ -26,13 +27,20 @@
 			S5: no se llegan a usar variables auxiliares.
 
 		vi. 
-			-Linea 5: dereferencing a ambas variables junto con casting del lado derecho a la variable "a" para poder operar con su tipo mas abarcativo float.
+			-Linea 4: deproceduring para acceder al valor de la funcion print y 1 dereferencing.
+			
+			-Linea 5: deproceduring para acceder al valor de la funcion print y dereferencing a ambas variables junto con casting del lado derecho a la variable "a" para poder operar con su tipo mas abarcativo float.
 
-			-Linea 6: dereferencing a ambas variables.
+			-Linea 6: deproceduring para acceder al valor de la funcion print y dereferencing a ambas variables.
 
 			-Linea 8: dereferencing y casting del lado derecho para la variable "a".
 
-		vii. Compatibilidad de tipos de ADA = por nombre
+			-Linea 9: deproceduring para acceder al valor de la funcion print y dereferencing para extraer el valor del tipo de "c".
+
+		vii. Compatibilidad de tipos de ADA = por nombre y conversiones explicitas.
+			
+			-Linea 5 y 6: falta de conversiones explicitas.
+			
 			-Linea 7: error de compilacion porque del lado derecho de la asignacion estamos recibiendo un tipo String y del lado izquierdo tenemos un String(1..1)
 
 			-Linea 8: error de compilacion porque del lado derecho de la asignacion estamos recibiendo un tipo de nombre "Integer" y del lado izquierdo tenemos "Float".
