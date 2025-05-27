@@ -1,0 +1,50 @@
+- Ejercicio 1
+
+	- a) 
+		Salidas: 
+			id : 100, j: 4, &j: 4210764
+			id : 101, j: 3, &j: 4210764
+			id : 102, j: 2, &j: 4210764
+			id : 103, j: 1, &j: 4210764
+			id : 200, j: 4, &j: 4210764
+			id : 400, j: 1, &j: 4210764
+			id : 300, j: 4, &j: 4210764
+
+		- En las primeras salidas el CPU le da prioridad al hilo th1 para ejecutar la funcion f con id=100, el cual crea una variable estatica a todo el programa, la decrementa 4 veces y entra recursivamente a la funcion cumpliendo con la condicion "j=0" y dejando a j con valor 0.
+		- Luego de ejecutarse th1 se le da ejecucion a th2 que re escribe la variable estatica global a valor 4, pero vemos una race condition entre th3 y th4 porque th4 accede a un valor anterior a la modificacion hecha por th2 y th3 accede al valor actualizado por th2.
+
+	- b)
+		id : 31764, j: 4, &j: 870904984
+		id : 31943, j: 4, &j: 949657672
+		id : 31774, j: 4, &j: 958053688
+		id : 31944, j: 4, &j: 949657624
+		id : 31765, j: 4, &j: 870904936
+		id : 31945, j: 4, &j: 949657576
+		id : 31766, j: 4, &j: 870904888
+		id : 31775, j: 4, &j: 958053640
+		id : 31291, j: 4, &j: 966464776
+		.
+		.
+		.
+
+		- Al declarar j como variable semi estatica local a cada hilo, entonces j se redeclara en cada registro de activacion de la funcion f que tiene una llamada recursiva, suficiente para que todas las iteraciones sean infinitas porque en cada llamado se declara nueva variable local "j=4", se la decrementa en 1 y se produce el llamado recursivo repitiendo comportamiento para todos los hilos.
+
+	- c)
+		id : 200, j: 4, &j: -619764036
+		id : 201, j: 3, &j: -619764036
+		id : 202, j: 2, &j: -619764036
+		id : 203, j: 1, &j: -619764036
+		id : 300, j: 4, &j: -628156740
+		id : 301, j: 3, &j: -628156740
+		id : 302, j: 2, &j: -628156740
+		id : 303, j: 1, &j: -628156740
+		id : 400, j: 4, &j: -636549444
+		id : 401, j: 3, &j: -636549444
+		id : 402, j: 2, &j: -636549444
+		id : 100, j: 4, &j: -611371332
+		id : 101, j: 3, &j: -611371332
+		id : 403, j: 1, &j: -636549444
+		id : 102, j: 2, &j: -611371332
+		id : 103, j: 1, &j: -611371332
+
+		- Al declarar la variable "j" como local a cada hilo, entonces las llamadas recursivas a f consultan todas una misma celda de memoria dentro de la pila de ejecucion de cada hilo, declarandola una sola vez y decrementandola 4 veces para cada hilo. Vemos que cada hilo (fijandonos por el id) accede a la misma direccion de memoria de la variable j en cada impresion (en cada ejecucion de f).
