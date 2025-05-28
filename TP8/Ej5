@@ -1,0 +1,9 @@
+- Ejercicio 5
+
+	- El programa deberia ejecutar los hilos Consumidor y Productor donde se necesita que Productor cambie al menos una vez el valor de la variable estatica global al programa MY_INT para que Consumidor pueda entrar al cuerpo del IF en el que estaba bloqueado. Sin importar que haga el scheduler del cpu ambos hilos deberian imprimir 5 veces su correspondiente mensaje.
+
+	- El comportamiento no fue el esperado porque el hilo Consumidor queda ciclando infinitamente porque nunca lee el valor actualizado por el hilo Productor.
+
+	- Se propone cambiar el tipo de variable estatica MY_INT a volatile indicando que los hilos que la accedan sepan que deben leer el ultimo valor modificado por algun otro hilo, garantizando sincronizacion.
+
+	private static volatile int MY_INT = 0;
