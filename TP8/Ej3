@@ -1,0 +1,28 @@
+- Ejercicio 3
+
+	- a)
+		id : 100, j: 0 
+		id : 200, j: 0 
+		id : 300, j: 2 
+		id : 400, j: 3 
+
+		Se produce la salida correspondiente porque tenemos un caso de race condition donde el hilo th1 ejecuta el print de la funcion f y el scheduler del cpu decide asignarle ejecucion al hilo th2 antes de incrementar la variable j global al programa, lo que hace que th2 lea el valor "viejo" de j que es 0. Luego el scheduler vuelve a th1 que incrementa j y vuelve a th2 que incrementa j, para despues ejecutar th3 que termina y ejecuta th4 en orden "secuencial".
+
+	- b)
+		Termina luego de 4 incrementos porque cada hilo ejecuta una unica vez la funcion f que incrementa una sola vez la variable j, y no vemos el valor en las salidas porque la impresion del valor ocurre antes del incremento.
+
+	- c)
+		void f(int id){
+			mtx.lock()
+			static int j = 0;
+			printf("id : %d, j: %d \n",id,j);
+			j++;
+			mtx.unlock()
+		}
+		Con la siguiente solucion nos aseguramos que cuando un hilo entra a la funcion f a leer el valor de j otro no este escribiendolo en ese mismo momento o que haya dos hilos incrementando j al mismo momento con valores distintos. Nos libramos de race conditions poniendo en una seccion critica al codigo dentro de f.
+
+	- d)
+		Si la variable j es local a la funcion f ya no es necesaria la solucion propuesta porque j ya no seria una celda de memoria compartida entre los hilos, sino que cada hilo accederia a una propia celda de memoria de j ubicada dentro del registro de activacion de f.
+
+	- e)
+		Si la variable j es local a cada pila de hilos de ejecucion significa que esta ubicada en la seccion de variables estaticas locales a cada hilo, y tampoco seria necesaria la solucion propuesta porque cada hilo tendria una variable j para acceder propia a el, sin importar tampoco la cantidad de veces que se ejecute f porque esas ejecucion se harian en forma secuencial y no habria riesgo de race condition entre registros de activacion.
