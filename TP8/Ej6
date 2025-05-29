@@ -1,8 +1,0 @@
-- Ejercicio 6
-	
-	- a)
-		El programa tendra 2 hilos ejecutandose en simultaneos que utilizan 2 variables globales compartidas "x" y "CANT" pero esta ultima nunca cambia su valor y solo es leida por lo que no representa un problema de sincronizacion. La variable global "x" es decrementada por un hilo e incrementada por otro unas CANT veces, por lo que la variable termina el programa con su valor inicial 0. Ademas cada hilo utiliza para la iteracion una variable local a la funcion por lo que ayuda al objetivo.
-
-	- b)
-		El programador la hubiese usado para que la ejecucion del incremento-decremento se haga intercalada, con un hilo incrementando, es desalojado por el scheduler y se paso al otro hilo que lo decrementa, hasta que se llega al valor maximo del rango CANT. 
-		
