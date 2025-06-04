@@ -1,0 +1,22 @@
+- Ejercicio 2
+
+	- a)
+		Las variables w, a1 y a2 son semiestaticas y viven dentro del registro de activacion de main por lo que su separacion en memoria entre ellas es de solo 4 bytes.
+
+	- b)
+		Las variables z y A::y son estaticas y se encuentran ambas en el espacio de variables estaticas del programa, siendo su distancia de 8 bytes.
+
+	- c)
+		Tanto lo apuntado por a2 como por s son variables dinamicas anonimas que se encuentra en el Heap y por eso se encuentran cercanas.
+
+	- d)
+		a1 y a1.x comparten la misma celda de memoria porque en realidad un objeto solo no tiene una direccion de memoria propia, sino la de sus atributos.
+
+	- e)
+		Mismo caso anterior con a1 pero ahora el espacio de memoria es el Heap donde la direccion de lo apuntado por a2 es el comienzo de sus atributos donde tambien se encuentra su atributo x.
+
+	- f)
+		El resultado de las ultimas 2 impresiones del programa es el mismo porque la diferencia es solo sintactica entre ambas expresiones. En una estamos pidiendo por la direccion de x del puntero a2 (se lo pedimos a la variable semiestatica) y en otra estamos pidiendio por la direccion de x de lo apuntado por a2 (se lo pedimos a la variable dinamica anonima).
+
+	- g)
+		La asignacion podria realizarse con exito porque ambos tipos son compatibles al hacer las clases identicas con la misma cantidad y tipos de atributos.
