@@ -1,0 +1,9 @@
+- Ejercicio 4
+
+	- a) Se producen errores de compilacion cuando se quiere acceder a p1.y porque al hacer la asignacion "p1 = h1" y ser objetos ubicados en la pila de ejecucion y no punteros, p1 solo toma los valores de h1 que comparten, entonces en este caso solo cambiaria el valor de la variable x de p1 y no agregaria el atributo y que posee h1. El siguiente error viene al hacer "p1.m()" ṕorque no existe ningun metodo m() dedntro de la clase Padre. El ultimo error esta en la asignacion "h1 = p1" porque tenemos compatibilidad por nombre, donde del lado izquierdo tenemos "Hija" y del lado derecho tenemos "Padre", entonces este error se solucionaria agregando una conversion explicita con un casting "h1 = (Hija)p1"
+
+	- b) Es una semantica de asignacion por copia valor porque los objetos se encuentra en la pila de ejecucion y no son punteros, entonces solo se copia el valor de los atributos compatibles de las estructuras.
+
+	- c) No se producirian cambios semanticos en este aspecto rsepecto a la asignacion original porque h1 ya es un objeto de la clase Padre.
+
+	- d) Esto se debe a que primero el objeto h1 registra los atributos copiados que posee la clase de la que hereda, entonces el objeto h1 va a tener como direccion primero el atributo Padre::x, y luego Padre::z
